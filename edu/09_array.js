@@ -94,6 +94,99 @@ arr = [1, 2, 3, 4, 5];
 resultArr = arr.join(", ");
 console.log(arr, resultArr);
 
+// Array.sort(): T[] ** 원본 변경 **
+// 배열의 요소를 문자열로 변환 후, 오름차순 정렬을 하고 정렬한 배열을 반환
+arr = [6, 4, 7, 1, 11];
+// resultArr = arr.sort(); > 1, 11, 4, 6, 7 > 문자열로 변환 후 정렬하여 11이 앞에 옴
+resultArr = arr.sort((a, b) => a - b); // > 오름차순 정렬 / (b - a)하면 내림차순 정렬
+// (a - b)가 양수일 경우, a가 큰수, b가 작은수로 인식하여 정렬
+// (a - b)가 음수일 경우, a가 작은수, b가 큰수로 인식하여 정렬
+// (a - b)가 0일 경우, 같은 값으로 인식하여 정렬하지 않음
+console.log(arr, resultArr);
+
+// Array.map(callback) : T[]
+// 배열의 모든 요소에 대해 콜백 함수를 반복 실행한 후,
+// 콜백 함수의 리턴 값들을 모아서 새로운 배열을 반환
+arr = [1, 2, 3, 4, 5, 6];
+// [1, 2, '짝', 4, 5, '짝']
+resultArr = arr.map((val) => {
+  if (val % 3 === 0) {
+    return `짝`;
+  } else {
+    return val;
+  }
+});
+console.log(arr, resultArr);
+
+class MyArr {
+  arr = [1, 2, 3, 4, 5, 6];
+
+  map(cb) {
+    // 새로운 배열
+    const newArr = [];
+
+    for (let i = 0; i < this.arr.length; i++) {
+      newArr.push(cb(this.arr[i]));
+    }
+    return newArr;
+  }
+}
+const test = new MyArr();
+resultArr = test.map((val) => {
+  if (val % 3 === 0) {
+    return `짝`;
+  } else {
+    return val;
+  }
+});
+console.log(`test: ${resultArr}`);
+
+// Array.some(callback): boolean
+// 배열의 모든 요소에 대해 콜백함수를 실행한 후,
+// 조건에 맞는결과가 하나라도 있으면 true, 없으면 false를 반환
+arr = [
+  { name: "홍길동", age: 20 },
+  { name: "둘리", age: 50 },
+  { name: "또치", age: 45 },
+];
+resultArr = arr.some((item) => item.name === "둘리");
+console.log(arr, resultArr);
+
+// Array.every(callback): boolean
+// 배열의 모든 요소에 대해 콜백함수를 실행한 후,
+// 모두 조건에 맞으면 true, 아니면 false를 반환
+arr = [
+  { name: "홍길동", age: 20 },
+  { name: "둘리", age: 50 },
+  { name: "또치", age: 45 },
+];
+resultArr = arr.every((item) => item.age >= 20);
+console.log(arr, resultArr);
+
+// Array.filter(callback): T[]
+// 배열의 모든 요소에 대해 콜백함수를 실행한 후,
+// 조건에 만족한 요소만 모아서 새로운 배열로 반환
+arr = [
+  { name: "홍길동", age: 20 },
+  { name: "둘리", age: 50 },
+  { name: "또치", age: 45 },
+];
+resultArr = arr.filter((item) => item.age < 50);
+console.log(arr, resultArr);
+
+// Array.foreach(callback): void
+// 배열의 모든 요소에 대해 콜백 함수를 반복 실행하고 싶을 때 사용
+arr = [
+  { name: "홍길동", age: 20 },
+  { name: "둘리", age: 50 },
+  { name: "또치", age: 45 },
+];
+arr.forEach((val, idx) => {
+  // 내가 하고 싶은 처리
+  console.log(val, idx);
+});
+
+// -------------------------------------------------------------------
 // 배열 [2,4,5,6,9] 있다.
 // 여기서 특정 요소가 있는지 확인하고 true/false를 반환하는
 // `myIncludes`함수를 만들어 주세요.
