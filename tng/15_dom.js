@@ -10,13 +10,10 @@ parent.insertBefore(newLi, apple);
 const createLi = document.querySelectorAll(`li`);
 createLi[2].classList.add(`none-li`);
 
-const liAll = document.querySelectorAll(`.none-li`);
-liAll[9].style.backgroundColor = `begie`;
+const liAll = document.querySelectorAll(`li`);
+liAll[9].style.backgroundColor = `beige`;
 liAll.forEach((item, idx) => {
-  if (idx === 9) {
-    item.style.backgroundColor = "beige";
-  }
-  if (idx % 2 === 1) {
+  if ((idx + 1) % 2 === 0) {
     item.style.color = `red`;
   } else {
     item.style.color = `blue`;
