@@ -4,10 +4,16 @@
   box-sizing: border-box;
 }
 
+.container {
+  padding: 15px;
+  position: absolute;
+}
+
 .hid-div {
   width: 100px;
   height: 100px;
-  position: absolute;
-  top: 304px;
-  left: 230px;
+}
+
+.busted {
+  background-color: #68a684;
 }
