@@ -67,9 +67,16 @@
     container.style.top = `${randomY}px`;
     container.style.left = `${randomX}px`;
   };
-
   const dokidoki = () => {
     alert(`두근두근`);
+  };
+
+  const setRandomBackgroundColor = (element) => {
+    const randomRgbRed = Math.round(Math.random() * 255);
+    const randomRgbGreen = Math.round(Math.random() * 255);
+    const randomRgbBlue = Math.round(Math.random() * 255);
+
+    element.style.backgroundColor = `rgb(${randomRgbRed}, ${randomRgbGreen}, ${randomRgbBlue})`;
   };
 
   const hide = () => {
@@ -80,6 +87,8 @@
     hidDiv.removeEventListener(`click`, hide);
     container.addEventListener(`mouseenter`, dokidoki);
     hidDiv.addEventListener(`click`, busted);
+
+    hidDiv.style = ` `;
   };
 
   const busted = () => {
@@ -89,6 +98,8 @@
     hidDiv.removeEventListener(`click`, busted);
 
     hidDiv.addEventListener(`click`, hide);
+    // 보너스: 랜덤 배경색 지정
+    setRandomBackgroundColor(hidDiv);
 
     alert(`들켰다!`);
   };
