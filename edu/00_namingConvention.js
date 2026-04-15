@@ -2,7 +2,7 @@
 // 첫 단어는 소문자, 이후는 첫 글자만 대문자
 // 단어와 단어가 연결될 때, 가장 첫 글자를 대문자로 작성
 // js, java 같은 언어에서 변수·함수 등에서 사용
-let user;
+// let user;
 let userName;
 let userFirstName;
 
