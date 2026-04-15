@@ -11,8 +11,6 @@ form.addEventListener(`submit`, (e) => {
   axios
     .get(url)
     .then((res) => {
-      console.log(res);
-
       // 카드들 넣을 컨테이너
       const container = document.querySelector(`.container`);
       container.textContent = ``; // 검색 누를 때 마다 카드 누적 x 새로운 화면에 카드 줌
